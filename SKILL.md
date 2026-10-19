@@ -1,10 +1,14 @@
 ---
 name: hfss-et-divider
-description: Inspect and tune HFSS rectangular-waveguide E-plane T power dividers with symmetric matching irises. Use for input reflection, equal split, modal phase, iris dimensions, arm length changes, reverse combining, and saved-result checks in existing AEDT projects.
+description: "面向射频与微波工程的 HFSS E 面 T 形波导二路功分器与反向合成器匹配优化。 Inspect and tune HFSS rectangular-waveguide E-plane T power dividers with symmetric matching irises. Use for input reflection, equal split, modal phase, iris dimensions, arm length changes, reverse combining, and saved-result checks in existing AEDT projects."
 license: MIT
 metadata:
   author: shao36058-png
   version: "0.2.0"
+  domain: "Electronics Engineering / 电子工程"
+  specialty: "RF and Microwave Engineering / 射频与微波工程"
+  component: "Waveguide Power Dividers and Combiners / 波导功分器与合成器"
+  author-suggested-soc: "17-2072"
 ---
 
 # HFSS E 面 T 形功分器

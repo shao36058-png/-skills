@@ -6,6 +6,18 @@
 
 [技能入口](SKILL.md) · [BJ140 完整参数](references/bj140-14ghz.md) · [AEDT 操作流程](references/aedt-workflow.md) · [MIT 许可证](LICENSE)
 
+## 分类与检索
+
+**作者分类：电子工程 → 射频与微波工程 / Electronics Engineering → RF and Microwave Engineering。**
+
+| 技能 | 器件细分 |
+|---|---|
+| HFSS E 面 T 形二路功分器 | 波导无源器件 → 功率分配与合成 / Waveguide Power Dividers and Combiners |
+
+职业参考：[Electronics Engineers, Except Computer（SOC 17-2072）](https://skillsmp.com/occupations/electronics-engineers-except-computer)。技能的 `metadata` 记录作者建议分类，`description` 提供中英文器件名称，方便识别与检索。
+
+这些是作者维护的分类信息。SkillsMP 的职业和类别标签由平台维护；其公开文档未承诺依据这些自定义字段自动分类。本节不表示网页上的“分类待定”已解除。
+
 ## 安装与使用
 
 使用 [skills CLI](https://github.com/vercel-labs/skills)，为 Codex 安装：
