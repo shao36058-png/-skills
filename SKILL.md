@@ -1,56 +1,61 @@
 ---
 name: hfss-et-divider
-description: "面向射频与微波工程的 HFSS E 面 T 形波导二路功分器与反向合成器匹配优化。 Inspect and tune HFSS rectangular-waveguide E-plane T power dividers with symmetric matching irises. Use for input reflection, equal split, modal phase, iris dimensions, arm length changes, reverse combining, and saved-result checks in existing AEDT projects."
+description: "面向射频与微波工程的 HFSS 矩形波导 E/H 面功分器、功率合成器、魔T与电阻隔离优化。 Inspect and tune HFSS rectangular-waveguide E/H-plane dividers and combiners, magic tees, matching irises/posts, resistive cards, coherent efficiency, input isolation, modal phase and matched-load sensitivity. Use for existing AEDT projects and offline complex-S result audits."
 license: MIT
 metadata:
   author: shao36058-png
-  version: "0.2.0"
+  version: "0.3.0"
   domain: "Electronics Engineering / 电子工程"
   specialty: "RF and Microwave Engineering / 射频与微波工程"
   component: "Waveguide Power Dividers and Combiners / 波导功分器与合成器"
   author-suggested-soc: "17-2072"
 ---
 
-# HFSS E 面 T 形功分器
+# HFSS 波导功分与合成
 
-处理现有 HFSS E-T 二路功分器的检查、对称膜片匹配、尺寸调整和结果交付。先读取当前工程及已有结果；案例的端口编号、频段、尺寸与模式数不是新工程的默认要求。简单的尺寸或结果解释可直接使用已有记录，无需启动求解。
+检查并优化现有矩形波导功分器、合成器及其隔离通道。名称保留 `hfss-et-divider` 以兼容已有安装。案例的频段、端口编号、材料、路径补偿和尺寸均不是新任务的默认要求。结果解释或技能整理优先读取已有数据，无需启动 HFSS。
 
 ## 按任务读取
 
-- 建模、修改横臂/输入支路长度、解释开口/深入/厚度或相位：读 [几何与电磁约定](references/et-design.md)。其中有 60 mm 横臂、30 mm 输入支路的完整案例。
-- 改为 BJ140 截面或调谐 13.75–14.5 GHz：读 [BJ140 案例](references/bj140-14ghz.md)，其中区分导波波长、电纳及几何比例缩放，并给出实际保存结果的证据范围。
-- 连接已打开 AEDT、提取结果、调整端口、创建扫频、恢复求解或归档：读 [AEDT 操作与结果完整性](references/aedt-workflow.md)。先核实会话、绝对工程路径、设计和物理输入端口。
-- 只审核导出的复数 S 参数：使用下方离线工具。它不连接 AEDT，不创建工程，也不求解。
+- E-T 对称膜片、开口/深入/厚度/位置、横臂 60 mm 与支路 30 mm：[几何与电磁约定](references/et-design.md)。
+- 换 BJ140 或调谐至 13.75–14.5 GHz：[BJ140 功分案例](references/bj140-14ghz.md)。
+- 效率与输入隔离、同相合成、E/H 面与补偿、端口 0 W、过模及输出渐变：[合成与隔离判断](references/combining-and-isolation.md)。
+- 中央电阻膜、实体隔片、镍铬厚度、氧化铝电阻卡：[电阻隔离与加工约束](references/resistive-isolation.md)。
+- 四端口魔 T、3 号沿 Z 输出、4 号沿 Y 接负载、取消输入补偿：[无补偿魔 T 完整案例](references/magic-t-14ghz.md)。
+- 比较前面各轮方案或查找成功/未达标试验：[21 项案例目录](references/case-library.md)，19 个合成网络另有 [机器索引](assets/case-index.json)。
+- 连接已打开 AEDT、求解、提取、保存、迁移和内存控制：[AEDT 操作与结果完整性](references/aedt-workflow.md)。
 
-## 调参与判断
+## 先核对，再调参
 
-确认用户频段、输入端口/模式、结构约束和目标指标。保留当前精度设置开展初次调参。目标应覆盖指定频段最差输入反射，并同时检查两路幅度、相对相位和功率去向；只改善一个频率处的凹点不能代表全带改善。
+1. 核实会话、绝对工程路径、设计和物理接口；读取已有几何、材料、边界、端口模式、积分线、扫频及当前名义结果。相同文件名不代表同一历史结构。
+2. 确定工作带宽、两路功率与相位、有效输出模式、隔离端口的实物终端、接口尺寸和加工约束。用户已明确的内容不重复询问。遵从原位修改或新建工程的选择；不强制建立副本。
+3. 分开评估独立输入隔离、每端口自反射和双源相干效率。使用完整传播模矩阵计算 `b = S a`；不能把单条约 −3 dB 的 S 曲线当作总合成损耗，也不能用高效率代替高隔离。
+4. 初次调参保留现有求解精度，用有限候选或有界优化覆盖全带最差指标。膜片位置、开口、厚度、柱径/位置和渐变各自有物理含义；均匀支路变长不要求全部匹配尺寸同比放大。
+5. 保留已验证最好结果。仅在有具体精度疑点或用户要求时加强网格/频点验证；内存不足时先减并发并监测，不能为继续搜索反复耗尽内存。
+6. 交付当前名义参数、端口/相位约定、收敛和真实扫频类型、功率去向及适用条件。按任务需要验证保存重开。清理仅限已授权候选，保留其他工程。
 
-按用户选择原位修改或创建副本。用户已指定直接修改当前工程时，在核实工程身份后原位修改并保存；不自动另建工程或强制归档。只有用户要求副本、迁移或归档时，才执行相应交付流程。
+## 每次合成评估必须包括
 
-区分宽边开口 `w`、单侧深入 `(a-w)/2`、沿传播方向厚度 `t` 和从 T 结外壁到膜片中心的距离 `di`。膜片的近面/远面距离为 `di∓t/2`。支路加长不意味着膜片位置按比例放大；先保持结区参考位置，再按实际结果决定是否调参。
+- 其他端口匹配时的独立输入耦合 `Sji`、各端口 `Sii`；写清隔离正值 `−20log10|Sji|` 与负值 S 曲线的区别。
+- 两路指定功率/相位下，有效输出 `|b_out|² / Σ|a_in|²`、输入返回、负载吸收、全部传播模式的输出与损耗/数值残余。
+- 单路工作、相位偏差、幅度失衡、反相输入；单路关闭按匹配终端计算时须说明，实际故障功放可能失配。
+- 有隔离口时检查实际负载失配的影响。0 W 波端口仍可接收功率；金属封死不是匹配负载。多模输出必须说明未利用模式的终端。
+- 检查端口模式极性和参考面后解释相位。E/H 面判据来自结区电场与分支方向，馈电弯头也可改变外部同相对应的和/差通道。翻转积分线不构成物理相位补偿。
 
-在用户要求的对称 E-T 结构内，优先调两片的开口和位置。使用有限候选或有界优化，保留已验证最好结果；一轮结束报告改进和剩余问题，再决定是否有必要继续。除非发现具体精度问题或用户要求，不因曲线尚能改善而反复加密网格、增加模式或离散频点。
+三端口、单模、无耗、互易网络无法同时实现全端口匹配和输入隔离；对称等分且公共口匹配时常见输入耦合约 −6 dB，不是所有三端口的统一极限。增设匹配差模出口或引入选择性耗散后可改善隔离。矩形金属波导开槽、加柱或加宽本身不提供差模吸收。
 
-读取实际输入列的模态 S 参数。本例端口 2 馈入时检查 `S(2:1,2:1)`、`S(1:1,2:1)`、`S(3:1,2:1)`。每路约 −3.01 dB 是理想等分量级，不能当作导体耗散。功率和须考虑其他传播模及实际损耗通道。
+## 离线复核
 
-在一致的输出模式极性/积分线及参考面下，E-T 两路约相差 180°；端口积分线翻转会改变报告相位。反向合成需要让 `S21*a1` 与 `S23*a3` 同相，不能把任意两路信号接入后就保证高效合成。
-
-区分自适应网格收敛、插值精度和独立离散求解。两个案例分别是 21 个和 25 个插值输出样点，均不是相同数量的独立离散求解。PEC 匹配数据不能作为无氧铜、空气、水冷条件下的连续功率额定值；若用户要求容量，另按实际圆角、损耗和热边界评估。
-
-## 离线审核
-
-需要 Python 3.10+，仅使用标准库。在当前技能目录执行：
+在技能根目录执行。Python 3.10+；功分工具仅需标准库，合成工具还需 NumPy。
 
 ```bash
 python scripts/divider_metrics.py --input assets/reference-case.json --max-reflection-db -25 --min-frequency-ghz 23 --max-frequency-ghz 25
 python scripts/divider_metrics.py --input assets/bj140-14ghz-case.json --max-reflection-db -25 --min-frequency-ghz 13.75 --max-frequency-ghz 14.5
+python scripts/combiner_metrics.py --input assets/cases/magic-t-equal-h-bends.json --output magic-t-audit.json --min-efficiency-pct 98 --min-isolation-db 24 --load-return-loss-db 20 --load-return-loss-db 30
 ```
 
-输入 JSON 必须包含 `frequencies_GHz` 和 `data`；每个 S 表达式包含等长 `real`、`imag` 数组。可选 `parameters` 使用案例参数名和 mm 单位。可选 `sweep_type`、`setup_sweep` 和 `validation` 用于记录来源；工具无法仅凭这些标签证明求解类型或收敛。复用时导出当前工程的实际数据，勿将案例文件作为待检查工程的结果。
+功分脚本可改 `--reflection-expression`、`--output-expressions`、`--expected-phase-deg`。合成脚本读取 `channel_order`、完整 `data` 与 `audit_config`；模式标签采用 `1:1`、`3:2` 等。所有列出的通道必须是采用功率波归一化的传播模，不能直接对截止模套用 `|S|²`。每项 S 数据由等长 `real`、`imag` 数组表示。阈值失败返回非零；无定义的路径相位报告为 `null`。更多格式和负载计算说明见 [合成参考](references/combining-and-isolation.md)。
 
-默认公共端口为 2，输出为 1/3；用 `--reflection-expression` 和 `--output-expressions` 修改。用 `--expected-phase-deg` 修改相位基准，`--output` 保存报告到工作目录。数值检查失败返回非零状态；无阈值时只计算指标。零幅度造成的无定义值报告为 `null`。
+案例是历史快照，不能作为当前工程的数据。证据标签不替代原生求解与收敛记录。两项功分例分别有 21/25 个插值输出点；E-T 单臂补偿例另有 25 点离散验证；其余案例按各自来源说明。当前无补偿魔 T 的全带样点效率 98.105–99.537%、最差输入隔离 24.383 dB，条件是第 4 口理想匹配，输出自反射尚未全带低于 −20 dB。
 
-23–25 GHz 案例最差输入反射约 −28.342 dB，两路相对 180° 的最大误差约 0.0465°，最大幅度差约 0.00321 dB。BJ140 案例最差输入反射约 −28.331 dB，最大相位误差约 0.0368°、最大幅度差约 0.00133 dB。原始复数数组见 [23–25 GHz 数据](assets/reference-case.json) 和 [BJ140 数据](assets/bj140-14ghz-case.json)，证据范围见各自参考。实际 HFSS 二进制工程和引用论文不随此技能分发。
-
-交付时说明当前几何、真实求解/扫频设置、指标及其适用范围。用户要求仅留最好一版或迁移目录时，先验证最终工程与匹配结果可重开，再只清理获授权的候选文件；不触及共享桌面中的其他工程。
+全部案例均不构成 1 kW 连续波额定验证。功率容量须另核实圆角、真实电导率、介质与电阻损耗、接触、散热及故障负载。文献的带宽/功率结论与本案例结果分别标注；不随技能分发论文全文或 HFSS 二进制工程。

@@ -1,4 +1,4 @@
-# AEDT / PyAEDT workflow for an existing HFSS divider
+# AEDT / PyAEDT workflow for waveguide dividers and combiners
 
 Read this reference when inspecting, retuning, recovering, or delivering an HFSS E-plane T divider in an existing AEDT session. It covers application state and result integrity; use the RF reference for design physics.
 
@@ -81,6 +81,18 @@ assert data
 Record the nominal values with the data, including waveguide dimensions and matching-feature positions. For frequency reports, also select `Freq: ["All"]`. Compare units and numeric values where appropriate; equivalent evaluated dimensions may have different string representations.
 
 When a final package should contain only one solved geometry, inspect `list_of_variations(setup_name, sweep_name)` or the corresponding installed API and compare it to the intended nominal state. Historical entries in an `.asol` VariationIDs index are not, by themselves, proof that every indexed variation has retained solution data.
+
+In the later AEDT 2025 R2 COM check, the working native call was `odesign.GetModule("Solutions").GetAvailableVariations("Setup1 : Sweep")`. `odesign.ListVariations(...)` was not available and raised `AttributeError`. Check the installed interface rather than treating these names as interchangeable. A returned variation still needs actual finite complex data across the intended frequency grid.
+
+For a combiner, export the full matrix of all propagating modal channels, their normalization, integration-line directions and physical roles. Record source amplitudes/phases separately from the S matrix. Evaluate independent input isolation, coherent output, returned power, matched-load power, single-source and imbalance cases as described in [combining and isolation](combining-and-isolation.md). A report's active reflection is not independent S11. Include downstream mode transitions or load mismatch when these affect the isolation mechanism.
+
+## Bound memory before optimization
+
+Before launching, read total/available physical memory and other running jobs. Use serial candidates and one owned solve at a time; do not parallelize full-wave candidates just because more CPU cores are available. In the later 14 GHz examples, two cores and a solver RAM setting of 40% left useful headroom, but that setting is not a hard operating-system cap.
+
+An example guard on the case workstation required at least 8 GiB available before starting, and stopped the owned solve if available memory fell below 5 GiB or total use exceeded 84%. These are recorded case values, not universal thresholds. Set suitable headroom for the actual machine, poll during the solve, and preserve a completed best candidate. Do not restart the desktop or kill unrelated processes to free memory. Keep lightweight monitoring and extraction separate from a blocking solve where practical.
+
+Limit the optimization by meaningful progress and a finite candidate budget. If no candidate meets all goals, report the tradeoff instead of silently lowering the isolation target or changing numerical precision. The resistive cases used up to eight adaptive passes in their recorded settings; the final no-compensation magic-T kept its original six-pass cap. Do not describe these different histories as one unchanged setup.
 
 ## Choose a sweep and verify completion
 

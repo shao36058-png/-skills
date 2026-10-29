@@ -1,0 +1,1979 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "case_id": "ht-copper",
+      "title": "H-T：柱＋双膜片，铜壁",
+      "disposition": "高效率、低输入隔离",
+      "geometry_note": "三端口无差模吸收通道；高效率不代表功放隔离。",
+      "asset": "assets/cases/ht-copper.json",
+      "parameters": {
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "c": "60mm",
+        "d": "30mm",
+        "w_iris": "10.288mm",
+        "di_iris": "12.51mm",
+        "t_iris": "0.5mm",
+        "w2_iris": "11.404mm",
+        "di2_iris": "21.297mm",
+        "x_post": "-3mm",
+        "r_post": "1.5mm"
+      },
+      "evidence": {
+        "source_artifact": "ht_optimization/final_copper.json",
+        "source_sha256": "a444f8090b1b1d6ae445b74486a393f1c3b6e1b10ff183c29ad381d12d33a7b9",
+        "setup_sweep": "Setup14GHz : Band13p75_14p5GHz",
+        "sweep_type": "Interpolating",
+        "converged_record": null,
+        "precision": {},
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false,
+        "convergence_note": "Archived native convergence report: five passes, DeltaS=0.014905, target0.02."
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "3:1"
+        ],
+        "output_channel": "2:1",
+        "load_channels": [],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        99.6156486570383,
+        99.66111828628341
+      ],
+      "input_isolation_min_dB": 5.884185904066568,
+      "self_reflection_worst_dB": {
+        "1:1": -6.130923415266524,
+        "2:1": -33.285747330718635,
+        "3:1": -6.140497580115747
+      },
+      "load_power_max_W": 0.0,
+      "maximum_singular_value": 0.9986854701884043,
+      "reciprocity_max_error": 1.3334236103572998e-15
+    },
+    {
+      "case_id": "et-path-comp",
+      "title": "E-T：单臂增加14.347mm",
+      "disposition": "相位补偿历史案例",
+      "geometry_note": "25点离散验证；只含传播TE10的3×3矩阵。外部同相，带边存在补偿色散，输入隔离仍约6dB。",
+      "asset": "assets/cases/et-path-comp.json",
+      "parameters": {
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "c": "60mm",
+        "d": "30mm",
+        "iris_w": "7.8mm",
+        "iris_d": "4.23mm",
+        "iris_t": "0.25mm",
+        "iris2_w": "10.15mm",
+        "iris2_d": "14.55mm",
+        "delta_L": "14.347mm"
+      },
+      "evidence": {
+        "source_artifact": "et_phase_compensation/final_copper.json",
+        "source_sha256": "704468247852fb43f0ca5804976281834f201fb8046549727fa98623ea13112c",
+        "setup_sweep": "VerifySetup : Band25_Discrete",
+        "sweep_type": "Discrete",
+        "converged_record": null,
+        "precision": {},
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false,
+        "convergence_note": "25-point discrete verification; do not relabel as interpolating."
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "3:1"
+        ],
+        "output_channel": "2:1",
+        "load_channels": [],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        98.90516456589826,
+        99.4195990307888
+      ],
+      "input_isolation_min_dB": 5.883660015861278,
+      "self_reflection_worst_dB": {
+        "1:1": -5.928669545649444,
+        "2:1": -27.886166017367962,
+        "3:1": -5.9334766684198605
+      },
+      "load_power_max_W": 0.0,
+      "maximum_singular_value": 0.9985868571367371,
+      "reciprocity_max_error": 4.119810118670014e-15
+    },
+    {
+      "case_id": "fiveport-internal-taper",
+      "title": "五端口：内部加宽＋BJ140渐变",
+      "disposition": "效率未达高效目标",
+      "geometry_note": "4/5理想匹配；正常双源仍向辅助口分流。膜片是本次匹配自由度，不是隔离观察口的必要条件。",
+      "asset": "assets/cases/fiveport-internal-taper.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "60mm",
+        "l4": "40mm",
+        "l5": "10mm",
+        "c": "13.45mm",
+        "l6": "29mm",
+        "aux_w": "9.55mm",
+        "aux_d": "6.35mm",
+        "aux_t": "0.25mm",
+        "w_match": "16.95mm",
+        "taper_len": "20mm"
+      },
+      "evidence": {
+        "source_artifact": "combiner_opt_20261022/reopened_final_copper.json",
+        "source_sha256": "f37d00db537c3b50eab9c9da50fecbf6744efa808dd33503573219c664069965",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {},
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [
+          "4:1",
+          "5:1"
+        ],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        87.11561867702444,
+        92.80595346031072
+      ],
+      "input_isolation_min_dB": 20.12551650896123,
+      "self_reflection_worst_dB": {
+        "1:1": -14.328535761066764,
+        "2:1": -14.573443325518735,
+        "3:1": -23.294213932303872,
+        "4:1": -6.134810295028867,
+        "5:1": -6.159326325052838
+      },
+      "load_power_max_W": 0.09829276694399162,
+      "maximum_singular_value": 0.9991103393570724,
+      "reciprocity_max_error": 5.183404835547203e-15
+    },
+    {
+      "case_id": "fiveport-joint",
+      "title": "五端口：联合几何优化",
+      "disposition": "效率与隔离的折中",
+      "geometry_note": "内部渐变与外部BJ140需区分；本版本尚有正常同相分流。",
+      "asset": "assets/cases/fiveport-joint.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "60mm",
+        "l4": "43mm",
+        "l5": "13mm",
+        "c": "13.65mm",
+        "l6": "28.5mm",
+        "aux_w": "9.65mm",
+        "aux_d": "6.45mm",
+        "aux_t": "0.25mm",
+        "w_match": "17.3mm",
+        "taper_len": "23mm"
+      },
+      "evidence": {
+        "source_artifact": "combiner_joint2_20261022/reopened_final_copper.json",
+        "source_sha256": "5b439bb3a2712e6b09124bef373752e23133cb7a7f7c4942619cf3bef9bf82b2",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": "Unchanged adaptive14GHz DeltaS.02 max6; interpolating13.75-14.5GHz25 output points",
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [
+          "4:1",
+          "5:1"
+        ],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        87.59795380621544,
+        92.85650608161875
+      ],
+      "input_isolation_min_dB": 20.070370754013513,
+      "self_reflection_worst_dB": {
+        "1:1": -14.658407828871749,
+        "2:1": -14.65706481059736,
+        "3:1": -29.155574078647398,
+        "4:1": -6.9520536104638335,
+        "5:1": -6.961339854569725
+      },
+      "load_power_max_W": 0.10323341217405049,
+      "maximum_singular_value": 0.9990895412872047,
+      "reciprocity_max_error": 3.9822133170699725e-15
+    },
+    {
+      "case_id": "threeport-removed-loads",
+      "title": "删除4/5支路的三端口对照",
+      "disposition": "隔离退化对照",
+      "geometry_note": "试验后恢复原五端口工程；这里保留该次真实对照数据，不表示当前工程仍为三口。",
+      "asset": "assets/cases/threeport-removed-loads.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "26.9mm",
+        "l4": "40mm",
+        "l5": "10mm",
+        "c": "13.45mm",
+        "l6": "29mm",
+        "aux_w": "9.55mm",
+        "aux_d": "6.35mm",
+        "aux_t": "0.25mm",
+        "w_match": "16.95mm",
+        "taper_len": "20mm"
+      },
+      "evidence": {
+        "source_artifact": "combiner_threeport_20261022/threeport_raw.json",
+        "source_sha256": "22e2b902cfbd971dc3f4c2467b27380394ed11c90587d8314e03c6d01c6a677c",
+        "setup_sweep": null,
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": "Unchanged DeltaS .02 max6; adaptive14GHz; interpolating13.75-14.5GHz25outputpoints",
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        94.08309515801216,
+        96.76199845998441
+      ],
+      "input_isolation_min_dB": 5.891914969395373,
+      "self_reflection_worst_dB": {
+        "1:1": -5.014239092718514,
+        "2:1": -5.01526120134428,
+        "3:1": -12.863029055573381
+      },
+      "load_power_max_W": 0.0,
+      "maximum_singular_value": 0.9966007005406659,
+      "reciprocity_max_error": 2.188788925178011e-14
+    },
+    {
+      "case_id": "overmode-output",
+      "title": "过模输出：28×7.9mm、TE10/TE20",
+      "disposition": "依赖TE20后级匹配",
+      "geometry_note": "外部仅三个几何端口，但有四个传播模态通道。3:2为TE20差模出口，不能计入正常有效TE10效率；不可假设它能直接通过BJ140。",
+      "asset": "assets/cases/overmode-output.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "60mm",
+        "l4": "63mm",
+        "l5": "13.5mm",
+        "c": "16.2mm",
+        "l6": "29.4mm",
+        "aux_w": "9.65mm",
+        "aux_d": "6.45mm",
+        "aux_t": "0.25mm",
+        "w_match": "24.8mm",
+        "taper_len": "23mm",
+        "a_out": "28mm"
+      },
+      "evidence": {
+        "source_artifact": "combiner_overmode_20261022/reopened_final_overmode.json",
+        "source_sha256": "7a8c565c4a29dcf42b39293975a44c6b043068c2378a2c9e7332279af7233e5c",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": "Unchanged adaptive14GHz DeltaS.02 max6; interpolating13.75-14.5GHz25 output points",
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [
+          "3:2"
+        ],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        97.2703957179235,
+        97.87268865480979
+      ],
+      "input_isolation_min_dB": 21.813686656332216,
+      "self_reflection_worst_dB": {
+        "1:1": -23.512402025499462,
+        "2:1": -24.09038586936475,
+        "3:1": -16.898820311082844,
+        "3:2": -28.86387795332933
+      },
+      "load_power_max_W": 2.0532437167277634e-06,
+      "maximum_singular_value": 0.99695029440366,
+      "reciprocity_max_error": 1.0796169701996887e-14
+    },
+    {
+      "case_id": "magic-t-closed",
+      "title": "论文启发魔T：正交臂铜封闭",
+      "disposition": "未复现高输入隔离",
+      "geometry_note": "只有三个单模接口；历史输出3在+Y，不能套用后来+Z端口图。论文未编号支臂的终端未明，本例封闭条件来自用户约束。",
+      "asset": "assets/cases/magic-t-closed.json",
+      "parameters": {
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "half_sep": "23mm",
+        "feed_len": "30mm",
+        "sum_len": "30mm",
+        "diff_len": "25mm",
+        "bend_miter": "6.2mm",
+        "base_r": "7.75mm",
+        "base_h": "0.578755mm",
+        "cone_h": "3.391833mm",
+        "stem_r": "0.578755mm",
+        "stem_h": "4.484678mm",
+        "iris_t": "0.289377mm",
+        "iris_d": "3.61722mm",
+        "iris_w": "15.5mm"
+      },
+      "evidence": {
+        "source_artifact": "magic_t_paper_20261022/stage1_final.json",
+        "source_sha256": "f7ce6d453b77f3d5cd8b9626f664b9bab7f9e5fc30d41af8cc9ca679519f5d92",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {
+          "setup": {
+            "Name": "Setup1",
+            "Enabled": true,
+            "Passes": "6",
+            "Percent Refinement": "30",
+            "Delta S": "0.02",
+            "Solution Freq Type": "Single",
+            "Solution Freq": "14GHz",
+            "Basis Order": "First Order",
+            "Max Refinement": "1000000",
+            "Use Max Refinement": false,
+            "Use ABC On Ports": false,
+            "Solver Type": "Direct Solver",
+            "Use ABC During Adaptive Passes FEBI": false
+          },
+          "sweep": {
+            "Name": "Sweep",
+            "Enabled": true,
+            "Type": "Interpolating",
+            "Start": "13.75GHz",
+            "Stop": "14.5GHz",
+            "Count": "25",
+            "EnforcePassivity": true,
+            "PassivityError": "0.0001",
+            "S-Matrix Only Solve": "Auto"
+          }
+        },
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        98.94201523506631,
+        99.57012088931208
+      ],
+      "input_isolation_min_dB": 6.2124436689064595,
+      "self_reflection_worst_dB": {
+        "1:1": -5.374750943263281,
+        "2:1": -5.381362476177301,
+        "3:1": -21.58822040068811
+      },
+      "load_power_max_W": 0.0,
+      "maximum_singular_value": 0.9983432191178364,
+      "reciprocity_max_error": 5.4858528335159476e-15
+    },
+    {
+      "case_id": "magic-t-compensated",
+      "title": "四端口魔T：镜像E弯头＋14.343951mm补偿",
+      "disposition": "已被无补偿布局替代",
+      "geometry_note": "3沿+Z，4沿+Y；输入端口积分线均+X。物理加长输入1补偿镜像E面弯头极性，带边有色散。",
+      "asset": "assets/cases/magic-t-compensated.json",
+      "parameters": {
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "half_sep": "22.417954mm",
+        "feed_len": "30mm",
+        "sum_len": "30mm",
+        "diff_len": "25mm",
+        "bend_miter": "5.2412377mm",
+        "base_r": "7.8mm",
+        "base_h": "1.35mm",
+        "cone_h": "2.3653mm",
+        "stem_r": "0.578755mm",
+        "stem_h": "7.9612244mm",
+        "iris_t": "0.289377mm",
+        "iris_d": "2.61722mm",
+        "iris_w": "15.65mm",
+        "phase_extra": "14.343951mm",
+        "z_iris_w": "15.5mm",
+        "z_iris_d": "5mm",
+        "z_iris_t": "0.5mm"
+      },
+      "evidence": {
+        "source_artifact": "magic_t_nocomp_20261029/original_compensated.json",
+        "source_sha256": "51bba0f3cc492c3a2c456b16754e05ef01563b995b0b09f70aa5a8835eaa2a05",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {
+          "setup": {
+            "Name": "Setup1",
+            "Enabled": true,
+            "Passes": "6",
+            "Percent Refinement": "30",
+            "Delta S": "0.02",
+            "Solution Freq Type": "Single",
+            "Solution Freq": "14GHz",
+            "Basis Order": "First Order",
+            "Max Refinement": "1000000",
+            "Use Max Refinement": false,
+            "Use ABC On Ports": false,
+            "Solver Type": "Direct Solver",
+            "Use ABC During Adaptive Passes FEBI": false
+          },
+          "sweep": {
+            "Name": "Sweep",
+            "Enabled": true,
+            "Type": "Interpolating",
+            "Start": "13.75GHz",
+            "Stop": "14.5GHz",
+            "Count": "25",
+            "EnforcePassivity": true,
+            "PassivityError": "0.0001",
+            "S-Matrix Only Solve": "Auto"
+          }
+        },
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [
+          "4:1"
+        ],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        97.06150464423125,
+        99.18683294944721
+      ],
+      "input_isolation_min_dB": 20.980736272430978,
+      "self_reflection_worst_dB": {
+        "1:1": -23.690826127804698,
+        "2:1": -23.457759556663646,
+        "3:1": -17.215141299502655,
+        "4:1": -19.75325561104483
+      },
+      "load_power_max_W": 0.005688119832728597,
+      "maximum_singular_value": 0.9983033535075505,
+      "reciprocity_max_error": 5.467214348906571e-15
+    },
+    {
+      "case_id": "magic-t-equal-h-bends",
+      "title": "四端口魔T：等长H面弯头、无补偿",
+      "disposition": "当前保留的电磁方案",
+      "geometry_note": "3沿+Z输出，4沿+Y接理想匹配负载。两输入位于XZ平面、积分线同为+Y、各0.5W0°，无额外补偿段。输出最差反射尚非全带-20dB。",
+      "asset": "assets/cases/magic-t-equal-h-bends.json",
+      "parameters": {
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "half_sep": "22.417954mm",
+        "feed_len": "30mm",
+        "sum_len": "30mm",
+        "diff_len": "25mm",
+        "bend_miter": "11.982475mm",
+        "base_r": "7.7452957mm",
+        "base_h": "1.35mm",
+        "cone_h": "2.9135204mm",
+        "stem_r": "0.578755mm",
+        "stem_h": "9.1612244mm",
+        "iris_t": "0.289377mm",
+        "iris_d": "2.61722mm",
+        "iris_w": "15.65mm",
+        "phase_extra": "0mm",
+        "z_iris_w": "11.9mm",
+        "z_iris_d": "5mm",
+        "z_iris_t": "0.5mm"
+      },
+      "evidence": {
+        "source_artifact": "magic_t_nocomp_20261029/fourport_reopened.json",
+        "source_sha256": "7c3f6e991f83604daac7db8c8c7eeb885f2897dc8dc26c41b8046dd2098b8847",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {
+          "setup": {
+            "Name": "Setup1",
+            "Enabled": true,
+            "Passes": "6",
+            "Percent Refinement": "30",
+            "Delta S": "0.02",
+            "Solution Freq Type": "Single",
+            "Solution Freq": "14GHz",
+            "Basis Order": "First Order",
+            "Max Refinement": "1000000",
+            "Use Max Refinement": false,
+            "Use ABC On Ports": false,
+            "Solver Type": "Direct Solver",
+            "Use ABC During Adaptive Passes FEBI": false
+          },
+          "sweep": {
+            "Name": "Sweep",
+            "Enabled": true,
+            "Type": "Interpolating",
+            "Start": "13.75GHz",
+            "Stop": "14.5GHz",
+            "Count": "25",
+            "EnforcePassivity": true,
+            "PassivityError": "0.0001",
+            "S-Matrix Only Solve": "Auto"
+          }
+        },
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [
+          "4:1"
+        ],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        98.10497648220299,
+        99.53653189318878
+      ],
+      "input_isolation_min_dB": 24.38345854583918,
+      "self_reflection_worst_dB": {
+        "1:1": -24.444007057114305,
+        "2:1": -24.63591771511629,
+        "3:1": -18.451291959668566,
+        "4:1": -32.78140632510682
+      },
+      "load_power_max_W": 2.726619860809202e-06,
+      "maximum_singular_value": 0.9983457885466295,
+      "reciprocity_max_error": 1.5632082117998628e-15
+    },
+    {
+      "case_id": "internal-difference-absorber",
+      "title": "三端口：内部差模腔＋电阻膜",
+      "disposition": "理想电阻可行性",
+      "geometry_note": "内部封闭吸收腔，不是外部第四接口；R_abs是理想等效总阻值，未含陶瓷/接触/热结构。",
+      "asset": "assets/cases/internal-difference-absorber.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "60mm",
+        "l4": "63mm",
+        "l5": "13.5mm",
+        "c": "16.2mm",
+        "l6": "29.4mm",
+        "aux_w": "9.65mm",
+        "aux_d": "6.45mm",
+        "aux_t": "0.25mm",
+        "w_match": "24.8mm",
+        "taper_len": "23mm",
+        "a_out": "28mm",
+        "bj_taper": "25mm",
+        "bj_tail": "25mm",
+        "post_r": "1.5mm",
+        "post_offset": "0mm",
+        "loop_s": "8.0228592mm",
+        "loop_h": "4.75mm",
+        "loop_d": "17.364448mm",
+        "loop_r": "0.4mm",
+        "loop_w": "0.7mm",
+        "loop_t": "0.4mm",
+        "loop_gap": "0.5mm",
+        "R_iso": "175ohm",
+        "abs_w": "7.9mm",
+        "abs_a": "15.8mm",
+        "abs_d": "20mm",
+        "abs_front": "12mm",
+        "abs_back": "8.6mm",
+        "R_abs": "769.80476ohm"
+      },
+      "evidence": {
+        "source_artifact": "resistive_combiner_20261023/final_reopened.json",
+        "source_sha256": "80f7422458334299f4d49f9331a8512d77dc4f0f1cb188c4835072f1ce2ae510",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {
+          "setup": {
+            "Name": "Setup1",
+            "Enabled": true,
+            "Passes": "8",
+            "Percent Refinement": "30",
+            "Delta S": "0.02",
+            "Solution Freq Type": "Single",
+            "Solution Freq": "14GHz",
+            "Basis Order": "First Order",
+            "Max Refinement": "1000000",
+            "Use Max Refinement": false,
+            "Use ABC On Ports": false,
+            "Solver Type": "Direct Solver",
+            "Use ABC During Adaptive Passes FEBI": false
+          },
+          "Sweep": {
+            "Name": "Sweep",
+            "Enabled": true,
+            "Type": "Interpolating",
+            "Start": "13.75GHz",
+            "Stop": "14.5GHz",
+            "Count": "25",
+            "EnforcePassivity": true,
+            "PassivityError": "0.0001"
+          }
+        },
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        95.54692884110528,
+        96.72328206563654
+      ],
+      "input_isolation_min_dB": 16.855866291449924,
+      "self_reflection_worst_dB": {
+        "1:1": -14.293097777124409,
+        "2:1": -14.512160727251011,
+        "3:1": -14.444378922351307
+      },
+      "load_power_max_W": 0.0,
+      "maximum_singular_value": 0.9959453720675662,
+      "reciprocity_max_error": 2.0233814921242635e-15
+    },
+    {
+      "case_id": "e-central-film",
+      "title": "E面中央纵向理想电阻膜＋路径补偿",
+      "disposition": "高隔离理想薄片案例",
+      "geometry_note": "R_film=100Ω为该25×15.8mm膜沿Y的总电阻；方阻63.2Ω/□。输入2额外14.323951mm；不是普通金属片的加工定案。",
+      "asset": "assets/cases/e-central-film.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "7.9mm",
+        "b": "15.8mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "60mm",
+        "l4": "63mm",
+        "l5": "13.5mm",
+        "c": "8.5mm",
+        "l6": "29.4mm",
+        "aux_w": "9.65mm",
+        "aux_d": "6.45mm",
+        "aux_t": "0.25mm",
+        "w_match": "15.8mm",
+        "taper_len": "23mm",
+        "a_out": "7.9mm",
+        "bj_taper": "25mm",
+        "bj_tail": "25mm",
+        "post_r": "1.5mm",
+        "post_offset": "0mm",
+        "loop_s": "8.0228592mm",
+        "loop_h": "4.75mm",
+        "loop_d": "17.364448mm",
+        "loop_r": "0.4mm",
+        "loop_w": "0.7mm",
+        "loop_t": "0.4mm",
+        "loop_gap": "0.5mm",
+        "R_iso": "175ohm",
+        "abs_w": "7.9mm",
+        "abs_a": "15.8mm",
+        "abs_d": "20mm",
+        "abs_front": "12mm",
+        "abs_back": "8.6mm",
+        "R_abs": "769.80476ohm",
+        "film_l": "25mm",
+        "film_y": "53.5mm",
+        "film_h": "15.8mm",
+        "film_z": "0mm",
+        "R_film": "100ohm",
+        "phase_extra": "14.323951mm"
+      },
+      "evidence": {
+        "source_artifact": "combiner_central_film_20261023/final_fresh.json",
+        "source_sha256": "f229bb3eb9570f9b9be1d6f8ddbf0198c4a9465e7c9071b46a66d85d2cc5f9e0",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {
+          "setup": {
+            "Name": "Setup1",
+            "Enabled": true,
+            "Passes": "8",
+            "Percent Refinement": "30",
+            "Delta S": "0.02",
+            "Solution Freq Type": "Single",
+            "Solution Freq": "14GHz",
+            "Basis Order": "First Order",
+            "Max Refinement": "1000000",
+            "Use Max Refinement": false,
+            "Use ABC On Ports": false,
+            "Solver Type": "Direct Solver",
+            "Use ABC During Adaptive Passes FEBI": false
+          },
+          "Sweep": {
+            "Name": "Sweep",
+            "Enabled": true,
+            "Type": "Interpolating",
+            "Start": "13.75GHz",
+            "Stop": "14.5GHz",
+            "Count": "25",
+            "EnforcePassivity": true,
+            "PassivityError": "0.0001"
+          }
+        },
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        96.95651513314445,
+        98.2534602989799
+      ],
+      "input_isolation_min_dB": 28.41401898857214,
+      "self_reflection_worst_dB": {
+        "1:1": -18.10896687679911,
+        "2:1": -18.083098543064175,
+        "3:1": -18.344705414471182
+      },
+      "load_power_max_W": 0.0,
+      "maximum_singular_value": 0.9953161309308631,
+      "reciprocity_max_error": 1.3082271919587491e-14
+    },
+    {
+      "case_id": "h-central-bridge",
+      "title": "H面等长：中央取样柱＋理想电阻桥",
+      "disposition": "尚未全带20dB",
+      "geometry_note": "无路径补偿；横杆/细柱取样的理想电阻桥，不是把E面纵向膜旋转即可。",
+      "asset": "assets/cases/h-central-bridge.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "60mm",
+        "l4": "63mm",
+        "l5": "13.5mm",
+        "c": "16.140163mm",
+        "l6": "29.4mm",
+        "aux_w": "9.65mm",
+        "aux_d": "6.45mm",
+        "aux_t": "0.25mm",
+        "w_match": "24.8mm",
+        "taper_len": "23mm",
+        "a_out": "27.862694mm",
+        "bj_taper": "25mm",
+        "bj_tail": "25mm",
+        "post_r": "1.5mm",
+        "post_offset": "0mm",
+        "loop_s": "8.7561179mm",
+        "loop_h": "2.3706793mm",
+        "loop_d": "19.755417mm",
+        "loop_r": "0.15mm",
+        "loop_w": "0.3mm",
+        "loop_t": "0.4mm",
+        "loop_gap": "0.5mm",
+        "R_iso": "78.953733ohm",
+        "abs_w": "7.9mm",
+        "abs_a": "15.8mm",
+        "abs_d": "20mm",
+        "abs_front": "12mm",
+        "abs_back": "8.6mm",
+        "R_abs": "769.80476ohm",
+        "film_l": "25mm",
+        "film_y": "53.5mm",
+        "film_h": "15.8mm",
+        "film_z": "0mm",
+        "R_film": "100ohm",
+        "phase_extra": "14.323951mm"
+      },
+      "evidence": {
+        "source_artifact": "combiner_hplane_bridge_20261023/H_final_reopened.json",
+        "source_sha256": "b2ca52c682d5815dd88117a84867b269e520b3ca3c04712803e3847eeb4bf6ac",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {
+          "setup": {
+            "Name": "Setup1",
+            "Enabled": true,
+            "Passes": "8",
+            "Percent Refinement": "30",
+            "Delta S": "0.02",
+            "Solution Freq Type": "Single",
+            "Solution Freq": "14GHz",
+            "Basis Order": "First Order",
+            "Max Refinement": "1000000",
+            "Use Max Refinement": false,
+            "Use ABC On Ports": false,
+            "Solver Type": "Direct Solver",
+            "Use ABC During Adaptive Passes FEBI": false
+          },
+          "Sweep": {
+            "Name": "Sweep",
+            "Enabled": true,
+            "Type": "Interpolating",
+            "Start": "13.75GHz",
+            "Stop": "14.5GHz",
+            "Count": "25",
+            "EnforcePassivity": true,
+            "PassivityError": "0.0001"
+          }
+        },
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        97.24047077519634,
+        98.04771249682952
+      ],
+      "input_isolation_min_dB": 19.837247625698147,
+      "self_reflection_worst_dB": {
+        "1:1": -13.856921081216665,
+        "2:1": -13.606653281182293,
+        "3:1": -17.207426200080505
+      },
+      "load_power_max_W": 0.0,
+      "maximum_singular_value": 0.995903407940407,
+      "reciprocity_max_error": 2.1556631856153973e-15
+    },
+    {
+      "case_id": "h-solid-septum-1mm",
+      "title": "H面：1mm实体开槽电阻隔片",
+      "disposition": "假设材料的可行性试验",
+      "geometry_note": "实体1mm；采用指定电导率/介电常数的原型材料，并非普通镍铬或已购材料。未实现原理想薄片同等指标。",
+      "asset": "assets/cases/h-solid-septum-1mm.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "60mm",
+        "l4": "63mm",
+        "l5": "13.5mm",
+        "c": "15.883192mm",
+        "l6": "29.471961mm",
+        "aux_w": "9.65mm",
+        "aux_d": "6.45mm",
+        "aux_t": "0.25mm",
+        "w_match": "24.8mm",
+        "taper_len": "25mm",
+        "a_out": "27.841681mm",
+        "bj_taper": "25mm",
+        "bj_tail": "25mm",
+        "post_r": "1.5mm",
+        "post_offset": "0mm",
+        "loop_s": "8.7561179mm",
+        "loop_h": "2.3706793mm",
+        "loop_d": "19.755417mm",
+        "loop_r": "0.15mm",
+        "loop_w": "0.3mm",
+        "loop_t": "0.4mm",
+        "loop_gap": "0.5mm",
+        "R_iso": "78.953733ohm",
+        "abs_w": "7.9mm",
+        "abs_a": "15.8mm",
+        "abs_d": "20mm",
+        "abs_front": "12mm",
+        "abs_back": "8.6mm",
+        "R_abs": "769.80476ohm",
+        "film_l": "25mm",
+        "film_y": "53.5mm",
+        "film_h": "15.8mm",
+        "film_z": "0mm",
+        "R_film": "100ohm",
+        "phase_extra": "14.323951mm",
+        "plate_t": "1mm",
+        "plate_contact_l": "0.25mm",
+        "plate_contact_w": "0.5mm",
+        "sept_t": "1mm",
+        "sept_l": "15mm",
+        "sept_h": "1.9613233mm",
+        "sept_y": "73.626587mm",
+        "sept_x": "0mm",
+        "sept_z": "-3.95mm",
+        "sept_w": "19.874466mm",
+        "slot_side": "0.45mm",
+        "slot_web": "0.6mm"
+      },
+      "evidence": {
+        "source_artifact": "combiner_septum_solid_20261023/final_reopened.json",
+        "source_sha256": "ae4eb2b17e1b5f97ca7030e92bc76a117bff1ab9f1a03bd6bc7bcb79b9c36e3b",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {
+          "setup": {
+            "Name": "Setup1",
+            "Enabled": true,
+            "Passes": "8",
+            "Percent Refinement": "30",
+            "Delta S": "0.02",
+            "Solution Freq Type": "Single",
+            "Solution Freq": "14GHz",
+            "Basis Order": "First Order",
+            "Max Refinement": "1000000",
+            "Use Max Refinement": false,
+            "Use ABC On Ports": false,
+            "Solver Type": "Direct Solver",
+            "Use ABC During Adaptive Passes FEBI": false
+          },
+          "Sweep": {
+            "Name": "Sweep",
+            "Enabled": true,
+            "Type": "Interpolating",
+            "Start": "13.75GHz",
+            "Stop": "14.5GHz",
+            "Count": "25",
+            "EnforcePassivity": true,
+            "PassivityError": "0.0001"
+          }
+        },
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        95.72875839014006,
+        96.8666017758763
+      ],
+      "input_isolation_min_dB": 20.669341658855608,
+      "self_reflection_worst_dB": {
+        "1:1": -13.536737056610518,
+        "2:1": -13.646250213231623,
+        "3:1": -15.914722716959552
+      },
+      "load_power_max_W": 0.0,
+      "maximum_singular_value": 0.9923901176904273,
+      "reciprocity_max_error": 2.1556631856153973e-15
+    },
+    {
+      "case_id": "h-nicr-0p5mm",
+      "title": "H面：普通NiCr80、0.5mm开槽片",
+      "disposition": "未达到高隔离要求",
+      "geometry_note": "室温ρ=1.09e-6Ωm；厚实体采用有限电导率表面模型。保留0.5mm基于加工偏好，不是综合评分最低或电性能达标。",
+      "asset": "assets/cases/h-nicr-0p5mm.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "60mm",
+        "l4": "63mm",
+        "l5": "13.5mm",
+        "c": "16.476048mm",
+        "l6": "29.471961mm",
+        "aux_w": "9.65mm",
+        "aux_d": "6.45mm",
+        "aux_t": "0.25mm",
+        "w_match": "24.8mm",
+        "taper_len": "25mm",
+        "a_out": "27.974787mm",
+        "bj_taper": "25mm",
+        "bj_tail": "25mm",
+        "post_r": "1.5mm",
+        "post_offset": "0mm",
+        "loop_s": "8.7561179mm",
+        "loop_h": "2.3706793mm",
+        "loop_d": "19.755417mm",
+        "loop_r": "0.15mm",
+        "loop_w": "0.3mm",
+        "loop_t": "0.4mm",
+        "loop_gap": "0.5mm",
+        "R_iso": "78.953733ohm",
+        "abs_w": "7.9mm",
+        "abs_a": "15.8mm",
+        "abs_d": "20mm",
+        "abs_front": "12mm",
+        "abs_back": "8.6mm",
+        "R_abs": "769.80476ohm",
+        "film_l": "25mm",
+        "film_y": "53.5mm",
+        "film_h": "15.8mm",
+        "film_z": "0mm",
+        "R_film": "100ohm",
+        "phase_extra": "14.323951mm",
+        "plate_t": "1mm",
+        "plate_contact_l": "0.25mm",
+        "plate_contact_w": "0.5mm",
+        "sept_t": "0.5mm",
+        "sept_l": "15mm",
+        "sept_h": "1.9678726mm",
+        "sept_y": "73.119792mm",
+        "sept_x": "0mm",
+        "sept_z": "-3.95mm",
+        "sept_w": "20.185532mm",
+        "slot_side": "0.57135856mm",
+        "slot_web": "0.3mm"
+      },
+      "evidence": {
+        "source_artifact": "combiner_thickness_20261024/final_reopened.json",
+        "source_sha256": "840536a221c22323c4a3f5b5d7242c540fee884d1121ae189b3af3479eaf5f59",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {
+          "setup": {
+            "Name": "Setup1",
+            "Enabled": true,
+            "Passes": "8",
+            "Percent Refinement": "30",
+            "Delta S": "0.02",
+            "Solution Freq Type": "Single",
+            "Solution Freq": "14GHz",
+            "Basis Order": "First Order",
+            "Max Refinement": "1000000",
+            "Use Max Refinement": false,
+            "Use ABC On Ports": false,
+            "Solver Type": "Direct Solver",
+            "Use ABC During Adaptive Passes FEBI": false
+          },
+          "Sweep": {
+            "Name": "Sweep",
+            "Enabled": true,
+            "Type": "Interpolating",
+            "Start": "13.75GHz",
+            "Stop": "14.5GHz",
+            "Count": "25",
+            "EnforcePassivity": true,
+            "PassivityError": "0.0001"
+          }
+        },
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        97.00045711144708,
+        97.99202588290927
+      ],
+      "input_isolation_min_dB": 6.859488876524954,
+      "self_reflection_worst_dB": {
+        "1:1": -5.956004400496129,
+        "2:1": -5.981867626955682,
+        "3:1": -16.828168518685864
+      },
+      "load_power_max_W": 0.0,
+      "maximum_singular_value": 0.9958070404208885,
+      "reciprocity_max_error": 1.0778315928076985e-14
+    },
+    {
+      "case_id": "e-solid-0p2mm",
+      "title": "E面补偿：0.2mm实体片参数试验",
+      "disposition": "未选定实际材料",
+      "geometry_note": "εr=1、设计ρ≈0.01264Ωm，非镍铬。收敛的参数试验，无最终保存重开证明。",
+      "asset": "assets/cases/e-solid-0p2mm.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "7.9mm",
+        "b": "15.8mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "60mm",
+        "l4": "63mm",
+        "l5": "13.5mm",
+        "c": "8.5mm",
+        "l6": "29.4mm",
+        "aux_w": "9.65mm",
+        "aux_d": "6.45mm",
+        "aux_t": "0.25mm",
+        "w_match": "15.8mm",
+        "taper_len": "23mm",
+        "a_out": "7.9mm",
+        "bj_taper": "25mm",
+        "bj_tail": "25mm",
+        "post_r": "1.5mm",
+        "post_offset": "0mm",
+        "loop_s": "8.0228592mm",
+        "loop_h": "4.75mm",
+        "loop_d": "17.364448mm",
+        "loop_r": "0.4mm",
+        "loop_w": "0.7mm",
+        "loop_t": "0.4mm",
+        "loop_gap": "0.5mm",
+        "R_iso": "175ohm",
+        "abs_w": "7.9mm",
+        "abs_a": "15.8mm",
+        "abs_d": "20mm",
+        "abs_front": "12mm",
+        "abs_back": "8.6mm",
+        "R_abs": "769.80476ohm",
+        "film_l": "25mm",
+        "film_y": "54mm",
+        "film_h": "15.8mm",
+        "film_z": "0mm",
+        "R_film": "100ohm",
+        "phase_extra": "14.323951mm",
+        "plate_t": "1mm",
+        "plate_contact_l": "0.25mm",
+        "plate_contact_w": "0.5mm",
+        "sept_t": "0.5mm",
+        "sept_l": "15mm",
+        "sept_h": "1.9678726mm",
+        "sept_y": "73.119792mm",
+        "sept_x": "0mm",
+        "sept_z": "-3.95mm",
+        "sept_w": "20.185532mm",
+        "slot_side": "0.57135856mm",
+        "slot_web": "0.56094106mm",
+        "eplate_t": "0.2mm"
+      },
+      "evidence": {
+        "source_artifact": "combiner_eplane_thickness_20261024/eps1_t0p2.json",
+        "source_sha256": "fc91a431efac63abf1ac07939e35407b7faf48e2c65ae5699830d29228ee8a79",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {
+          "setup": {
+            "Name": "Setup1",
+            "Enabled": true,
+            "Passes": "8",
+            "Percent Refinement": "30",
+            "Delta S": "0.02",
+            "Solution Freq Type": "Single",
+            "Solution Freq": "14GHz",
+            "Basis Order": "First Order",
+            "Max Refinement": "1000000",
+            "Use Max Refinement": false,
+            "Use ABC On Ports": false,
+            "Solver Type": "Direct Solver",
+            "Use ABC During Adaptive Passes FEBI": false
+          },
+          "Sweep": {
+            "Name": "Sweep",
+            "Enabled": true,
+            "Type": "Interpolating",
+            "Start": "13.75GHz",
+            "Stop": "14.5GHz",
+            "Count": "25",
+            "EnforcePassivity": true,
+            "PassivityError": "0.0001"
+          }
+        },
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        95.63618215768525,
+        96.78940969968883
+      ],
+      "input_isolation_min_dB": 20.830742501515868,
+      "self_reflection_worst_dB": {
+        "1:1": -24.440880555481996,
+        "2:1": -23.64914131207264,
+        "3:1": -18.065468252986776
+      },
+      "load_power_max_W": 0.0,
+      "maximum_singular_value": 0.9893815529790447,
+      "reciprocity_max_error": 1.2358931700329863e-14
+    },
+    {
+      "case_id": "e-solid-1mm",
+      "title": "E面补偿：1mm实体片参数试验",
+      "disposition": "厚度影响反例",
+      "geometry_note": "εr=10、设计ρ≈0.0632Ωm；增厚并保持名义方阻不能保持相同电磁性能。无最终保存重开证明。",
+      "asset": "assets/cases/e-solid-1mm.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "7.9mm",
+        "b": "15.8mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "60mm",
+        "l4": "63mm",
+        "l5": "13.5mm",
+        "c": "8.5mm",
+        "l6": "29.4mm",
+        "aux_w": "9.65mm",
+        "aux_d": "6.45mm",
+        "aux_t": "0.25mm",
+        "w_match": "15.8mm",
+        "taper_len": "23mm",
+        "a_out": "7.9mm",
+        "bj_taper": "25mm",
+        "bj_tail": "25mm",
+        "post_r": "1.5mm",
+        "post_offset": "0mm",
+        "loop_s": "8.0228592mm",
+        "loop_h": "4.75mm",
+        "loop_d": "17.364448mm",
+        "loop_r": "0.4mm",
+        "loop_w": "0.7mm",
+        "loop_t": "0.4mm",
+        "loop_gap": "0.5mm",
+        "R_iso": "175ohm",
+        "abs_w": "7.9mm",
+        "abs_a": "15.8mm",
+        "abs_d": "20mm",
+        "abs_front": "12mm",
+        "abs_back": "8.6mm",
+        "R_abs": "769.80476ohm",
+        "film_l": "25mm",
+        "film_y": "54mm",
+        "film_h": "15.8mm",
+        "film_z": "0mm",
+        "R_film": "100ohm",
+        "phase_extra": "14.323951mm",
+        "plate_t": "1mm",
+        "plate_contact_l": "0.25mm",
+        "plate_contact_w": "0.5mm",
+        "sept_t": "0.5mm",
+        "sept_l": "15mm",
+        "sept_h": "1.9678726mm",
+        "sept_y": "73.119792mm",
+        "sept_x": "0mm",
+        "sept_z": "-3.95mm",
+        "sept_w": "20.185532mm",
+        "slot_side": "0.57135856mm",
+        "slot_web": "0.56094106mm",
+        "eplate_t": "1mm"
+      },
+      "evidence": {
+        "source_artifact": "combiner_eplane_thickness_20261024/eps10_t1p0.json",
+        "source_sha256": "ea90db4d7c0d20600b144807a8be007e1917839e0ba55c35daaf95be191773c4",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {
+          "setup": {
+            "Name": "Setup1",
+            "Enabled": true,
+            "Passes": "8",
+            "Percent Refinement": "30",
+            "Delta S": "0.02",
+            "Solution Freq Type": "Single",
+            "Solution Freq": "14GHz",
+            "Basis Order": "First Order",
+            "Max Refinement": "1000000",
+            "Use Max Refinement": false,
+            "Use ABC On Ports": false,
+            "Solver Type": "Direct Solver",
+            "Use ABC During Adaptive Passes FEBI": false
+          },
+          "Sweep": {
+            "Name": "Sweep",
+            "Enabled": true,
+            "Type": "Interpolating",
+            "Start": "13.75GHz",
+            "Stop": "14.5GHz",
+            "Count": "25",
+            "EnforcePassivity": true,
+            "PassivityError": "0.0001"
+          }
+        },
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        77.2468580505783,
+        77.83186761858381
+      ],
+      "input_isolation_min_dB": 23.072963965994028,
+      "self_reflection_worst_dB": {
+        "1:1": -24.298663026886448,
+        "2:1": -23.871209424779664,
+        "3:1": -16.957986726966755
+      },
+      "load_power_max_W": 0.0,
+      "maximum_singular_value": 0.9051536292823784,
+      "reciprocity_max_error": 1.0114156128027532e-14
+    },
+    {
+      "case_id": "e-restored-fiveport",
+      "title": "E面路径补偿：恢复4/5匹配出口",
+      "disposition": "去掉腔内电阻的五口方案",
+      "geometry_note": "内部电阻片已去掉；4/5仍可接收功率，实物需外置匹配负载。aux_second_*是抑制候选，不是当前启用的第二级膜片。",
+      "asset": "assets/cases/e-restored-fiveport.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "7.9mm",
+        "b": "15.8mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "80mm",
+        "l4": "63mm",
+        "l5": "13.6826928mm",
+        "c": "13.3555014mm",
+        "l6": "29.9mm",
+        "aux_w": "9.65mm",
+        "aux_d": "6.45mm",
+        "aux_t": "0.25mm",
+        "w_match": "15.8mm",
+        "taper_len": "23mm",
+        "a_out": "10.8732453mm",
+        "bj_taper": "25mm",
+        "bj_tail": "25mm",
+        "post_r": "1.5mm",
+        "post_offset": "0mm",
+        "loop_s": "8.0228592mm",
+        "loop_h": "4.75mm",
+        "loop_d": "17.364448mm",
+        "loop_r": "0.4mm",
+        "loop_w": "0.7mm",
+        "loop_t": "0.4mm",
+        "loop_gap": "0.5mm",
+        "R_iso": "175ohm",
+        "abs_w": "7.9mm",
+        "abs_a": "15.8mm",
+        "abs_d": "20mm",
+        "abs_front": "12mm",
+        "abs_back": "8.6mm",
+        "R_abs": "769.80476ohm",
+        "film_l": "25mm",
+        "film_y": "54mm",
+        "film_h": "15.8mm",
+        "film_z": "0mm",
+        "R_film": "100ohm",
+        "phase_extra": "14.323951mm",
+        "plate_t": "1mm",
+        "plate_contact_l": "0.25mm",
+        "plate_contact_w": "0.5mm",
+        "sept_t": "0.5mm",
+        "sept_l": "15mm",
+        "sept_h": "1.9678726mm",
+        "sept_y": "73.119792mm",
+        "sept_x": "0mm",
+        "sept_z": "-3.95mm",
+        "sept_w": "20.185532mm",
+        "slot_side": "0.57135856mm",
+        "slot_web": "0.56094106mm",
+        "eplate_t": "0.5mm",
+        "aux_offset": "2.83246297mm",
+        "aux_gap": "2.7485961mm",
+        "aux_xdist": "15.7386736mm",
+        "aux_thickness": "0.5mm",
+        "aux_second_gap": "5.5mm",
+        "aux_second_sep": "6mm",
+        "aux_second_thickness": "0.5mm"
+      },
+      "evidence": {
+        "source_artifact": "eplane_aux_20261028/final_reopened.json",
+        "source_sha256": "0e16d76548575272716ff3dfc1ec6ffec39206034e2c5b87cbd02125e5def541",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {
+          "setup": {
+            "Name": "Setup1",
+            "Enabled": true,
+            "Passes": "8",
+            "Percent Refinement": "30",
+            "Delta S": "0.02",
+            "Solution Freq Type": "Single",
+            "Solution Freq": "14GHz",
+            "Basis Order": "First Order",
+            "Max Refinement": "1000000",
+            "Use Max Refinement": false,
+            "Use ABC On Ports": false,
+            "Solver Type": "Direct Solver",
+            "Use ABC During Adaptive Passes FEBI": false
+          },
+          "Sweep": {
+            "Name": "Sweep",
+            "Enabled": true,
+            "Type": "Interpolating",
+            "Start": "13.75GHz",
+            "Stop": "14.5GHz",
+            "Count": "25",
+            "EnforcePassivity": true,
+            "PassivityError": "0.0001"
+          }
+        },
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [
+          "4:1",
+          "5:1"
+        ],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        84.77376325975527,
+        91.50680194596386
+      ],
+      "input_isolation_min_dB": 12.623260457511815,
+      "self_reflection_worst_dB": {
+        "1:1": -9.903451259759583,
+        "2:1": -9.846155564738769,
+        "3:1": -14.851395401047672,
+        "4:1": -3.281175724932309,
+        "5:1": -3.501040150740388
+      },
+      "load_power_max_W": 0.12306790101562691,
+      "maximum_singular_value": 0.998758218703995,
+      "reciprocity_max_error": 2.4626562704299193e-15
+    },
+    {
+      "case_id": "e-ceramic-card",
+      "title": "E面Y结：阶梯匹配＋陶瓷电阻卡＋补偿",
+      "disposition": "名义电阻卡方案",
+      "geometry_note": "真实介质基板及薄导体shell；膜方阻与厚度为工艺设计值，非供应商批次认证。",
+      "asset": "assets/cases/e-ceramic-card.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "7.9mm",
+        "b": "15.8mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "60mm",
+        "l4": "63mm",
+        "l5": "13.5mm",
+        "c": "8.5mm",
+        "l6": "29.19mm",
+        "aux_w": "9.65mm",
+        "aux_d": "6.45mm",
+        "aux_t": "0.25mm",
+        "w_match": "15.8mm",
+        "taper_len": "23mm",
+        "a_out": "17mm",
+        "bj_taper": "25mm",
+        "bj_tail": "25mm",
+        "post_r": "1.5mm",
+        "post_offset": "0mm",
+        "loop_s": "8.0228592mm",
+        "loop_h": "4.75mm",
+        "loop_d": "17.364448mm",
+        "loop_r": "0.4mm",
+        "loop_w": "0.7mm",
+        "loop_t": "0.4mm",
+        "loop_gap": "0.5mm",
+        "R_iso": "175ohm",
+        "abs_w": "7.9mm",
+        "abs_a": "15.8mm",
+        "abs_d": "20mm",
+        "abs_front": "12mm",
+        "abs_back": "8.6mm",
+        "R_abs": "769.80476ohm",
+        "film_l": "25mm",
+        "film_y": "53.5mm",
+        "film_h": "15.8mm",
+        "film_z": "0mm",
+        "R_film": "100ohm",
+        "phase_extra": "14.32mm",
+        "plate_t": "1mm",
+        "plate_contact_l": "0.25mm",
+        "plate_contact_w": "0.5mm",
+        "sept_t": "0.5mm",
+        "sept_l": "15mm",
+        "sept_h": "1.9678726mm",
+        "sept_y": "73.119792mm",
+        "sept_x": "0mm",
+        "sept_z": "-3.95mm",
+        "sept_w": "20.185532mm",
+        "slot_side": "0.57135856mm",
+        "slot_web": "0.56094106mm",
+        "card_t": "0.25mm",
+        "card_y": "53.6mm",
+        "card_l": "22.33mm",
+        "card_Rs": "161.4ohm",
+        "coating_nm": "30",
+        "step_w1": "14.59mm",
+        "step_w2": "11.37mm",
+        "step_w3": "9mm",
+        "step_l1": "8.63mm",
+        "step_l2": "8.83mm",
+        "step_l3": "7.16mm",
+        "coating_margin": "0mm"
+      },
+      "evidence": {
+        "source_artifact": "y_resistive_20261029/final_reopened.json",
+        "source_sha256": "ca858945e0453a00eac9b378e8d5a0380e492c2710235d9d579989f2ea295533",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {
+          "setup": {
+            "Name": "Setup1",
+            "Enabled": true,
+            "Passes": "8",
+            "Percent Refinement": "30",
+            "Delta S": "0.02",
+            "Solution Freq Type": "Single",
+            "Solution Freq": "14GHz",
+            "Basis Order": "First Order",
+            "Max Refinement": "1000000",
+            "Use Max Refinement": false,
+            "Use ABC On Ports": false,
+            "Solver Type": "Direct Solver",
+            "Use ABC During Adaptive Passes FEBI": false
+          },
+          "children": {
+            "Sweep": {
+              "Name": "Sweep",
+              "Enabled": true,
+              "Type": "Interpolating",
+              "Start": "13.75GHz",
+              "Stop": "14.5GHz",
+              "Count": "25",
+              "EnforcePassivity": true,
+              "PassivityError": "0.0001"
+            }
+          }
+        },
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        96.69308247922498,
+        97.51142714353861
+      ],
+      "input_isolation_min_dB": 29.862358317014312,
+      "self_reflection_worst_dB": {
+        "1:1": -23.776154167098333,
+        "2:1": -23.82622165972913,
+        "3:1": -24.666588795199466
+      },
+      "load_power_max_W": 0.0,
+      "maximum_singular_value": 0.9883753290149363,
+      "reciprocity_max_error": 1.542371118540254e-15
+    },
+    {
+      "case_id": "h-ceramic-card",
+      "title": "H面等长：横向陶瓷卡＋取样电极",
+      "disposition": "接近目标但未全带20dB",
+      "geometry_note": "无补偿；基板0.25mm，9.9Ω/□与110nm膜、铜电极共同进入全波。输入匹配及隔离未全部达到20dB。",
+      "asset": "assets/cases/h-ceramic-card.json",
+      "parameters": {
+        "l": "30mm",
+        "a": "15.8mm",
+        "b": "7.9mm",
+        "l1": "30mm",
+        "r1": "20mm",
+        "l2": "20mm",
+        "l3": "60mm",
+        "l4": "63mm",
+        "l5": "13.5mm",
+        "c": "16.57mm",
+        "l6": "29.61mm",
+        "aux_w": "9.65mm",
+        "aux_d": "6.45mm",
+        "aux_t": "0.25mm",
+        "w_match": "24.8mm",
+        "taper_len": "23mm",
+        "a_out": "28.95mm",
+        "bj_taper": "25mm",
+        "bj_tail": "25mm",
+        "post_r": "1.5mm",
+        "post_offset": "0mm",
+        "loop_s": "8.7561179mm",
+        "loop_h": "2.3706793mm",
+        "loop_d": "19.755417mm",
+        "loop_r": "0.15mm",
+        "loop_w": "0.3mm",
+        "loop_t": "0.4mm",
+        "loop_gap": "0.5mm",
+        "R_iso": "78.953733ohm",
+        "abs_w": "7.9mm",
+        "abs_a": "15.8mm",
+        "abs_d": "20mm",
+        "abs_front": "12mm",
+        "abs_back": "8.6mm",
+        "R_abs": "769.80476ohm",
+        "film_l": "25mm",
+        "film_y": "53.5mm",
+        "film_h": "15.8mm",
+        "film_z": "0mm",
+        "R_film": "100ohm",
+        "phase_extra": "0mm",
+        "plate_t": "1mm",
+        "plate_contact_l": "0.25mm",
+        "plate_contact_w": "0.5mm",
+        "sept_t": "0.5mm",
+        "sept_l": "15mm",
+        "sept_h": "1.9678726mm",
+        "sept_y": "73.119792mm",
+        "sept_x": "0mm",
+        "sept_z": "-3.95mm",
+        "sept_w": "20.185532mm",
+        "slot_side": "0.57135856mm",
+        "slot_web": "0.56094106mm",
+        "card_t": "0.25mm",
+        "card_y": "r1+l2+l5+pick_d",
+        "card_l": "22.33mm",
+        "card_Rs": "9.9ohm",
+        "coating_nm": "110",
+        "step_w1": "14.59mm",
+        "step_w2": "11.37mm",
+        "step_w3": "9mm",
+        "step_l1": "8.63mm",
+        "step_l2": "8.83mm",
+        "step_l3": "7.16mm",
+        "coating_margin": "0mm",
+        "pick_s": "6.41mm",
+        "pick_h": "2.2mm",
+        "pick_d": "22.98mm",
+        "pick_w": "0.6mm",
+        "bridge_gap": "1mm",
+        "bridge_h": "0.3mm",
+        "card_margin": "0.6mm",
+        "card_top": "0.5mm",
+        "card_width": "2*pick_s+pick_w+2*card_margin",
+        "card_height": "pick_h+bridge_h/2+card_top",
+        "copper_um": "10"
+      },
+      "evidence": {
+        "source_artifact": "hplane_card_20261029/final_reopened.json",
+        "source_sha256": "9a6d197ce30604b1161641a2d040e9fb2eb6774c55e638ed23d32c97eb8a20ac",
+        "setup_sweep": "Setup1 : Sweep",
+        "sweep_type": "Interpolating",
+        "converged_record": true,
+        "precision": {
+          "setup": {
+            "Name": "Setup1",
+            "Enabled": true,
+            "Passes": "8",
+            "Percent Refinement": "30",
+            "Delta S": "0.02",
+            "Solution Freq Type": "Single",
+            "Solution Freq": "14GHz",
+            "Basis Order": "First Order",
+            "Max Refinement": "1000000",
+            "Use Max Refinement": false,
+            "Use ABC On Ports": false,
+            "Solver Type": "Direct Solver",
+            "Use ABC During Adaptive Passes FEBI": false
+          },
+          "children": {
+            "Sweep": {
+              "Name": "Sweep",
+              "Enabled": true,
+              "Type": "Interpolating",
+              "Start": "13.75GHz",
+              "Stop": "14.5GHz",
+              "Count": "25",
+              "EnforcePassivity": true,
+              "PassivityError": "0.0001"
+            }
+          }
+        },
+        "archive_is_current_live_project": false,
+        "all_listed_modes_propagating": true,
+        "thermal_rating_verified": false
+      },
+      "audit_config": {
+        "input_channels": [
+          "1:1",
+          "2:1"
+        ],
+        "output_channel": "3:1",
+        "load_channels": [],
+        "powers_W": [
+          0.5,
+          0.5
+        ],
+        "phases_deg": [
+          0,
+          0
+        ]
+      },
+      "efficiency_pct": [
+        98.71604679149368,
+        99.07786442744114
+      ],
+      "input_isolation_min_dB": 19.696969725612202,
+      "self_reflection_worst_dB": {
+        "1:1": -18.40877082947156,
+        "2:1": -18.50801928414201,
+        "3:1": -24.270164007045516
+      },
+      "load_power_max_W": 0.0,
+      "maximum_singular_value": 0.9957830473168656,
+      "reciprocity_max_error": 7.105427357601002e-15
+    }
+  ]
+}
